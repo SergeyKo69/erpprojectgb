@@ -4,9 +4,7 @@ import org.intellij.lang.annotations.Identifier;
 import ru.kogut.enterprise.model.AbstractEntity;
 import ru.kogut.enterprise.model.dictionaries.ClientEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.UUID;
 
@@ -22,14 +20,12 @@ public class DocumentAbstractTorgEntity extends AbstractEntity {
     @Column(name = "isDelete")
     private boolean isDelete;
 
-    @Column(name = "client")
+    @OneToOne
+    @JoinColumn(name = "client")
     private ClientEntity clientEntity;
 
     @Column(name = "comment")
     private String comment;
-
-    @Column(name = "tabDocument")
-    private DocumentAbstractTabTorgEntity tab;
 
     public String getNumber() {
         return number;
@@ -69,13 +65,5 @@ public class DocumentAbstractTorgEntity extends AbstractEntity {
 
     public void setComment(String comment) {
         this.comment = comment;
-    }
-
-    public DocumentAbstractTabTorgEntity getTab() {
-        return tab;
-    }
-
-    public void setTab(DocumentAbstractTabTorgEntity tab) {
-        this.tab = tab;
     }
 }

@@ -3,17 +3,14 @@ package ru.kogut.enterprise.model.dictionaries;
 import ru.kogut.enterprise.model.dictionaries.DictionaryAbstractEntity;
 import ru.kogut.enterprise.model.dictionaries.ProductEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "productUnits")
 public class UnitProductEntity extends DictionaryAbstractEntity {
 
-    @Column(name = "product_id")
     @ManyToOne
+    @JoinColumn(name = "product_id")
     private ProductEntity product;
 
     @Column(name = "unit_id")

@@ -2,9 +2,7 @@ package ru.kogut.enterprise.model.registers;
 
 import ru.kogut.enterprise.model.dictionaries.ProductEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -15,7 +13,8 @@ public class CostRegEntity extends AbstractRegisterEntity {
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "product")
+    @ManyToOne
+    @JoinColumn(name = "product")
     private ProductEntity product;
 
     @Column(name = "cost")

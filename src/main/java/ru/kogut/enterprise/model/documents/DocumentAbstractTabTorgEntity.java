@@ -5,21 +5,25 @@ import ru.kogut.enterprise.model.AbstractEntity;
 import ru.kogut.enterprise.model.dictionaries.ProductEntity;
 import ru.kogut.enterprise.model.dictionaries.UnitProductEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.UUID;
 
-@MappedSuperclass
+@Entity
+@Table(name = "document_tab_torg")
 public class DocumentAbstractTabTorgEntity extends AbstractEntity {
 
-    @Column(name = "product")
+    @Column(name = "document", nullable = false)
+    private String documentId;
+
+    @OneToOne
+    @JoinColumn(name = "product")
     private ProductEntity product;
 
     @Column(name = "quantity")
     private Double quantity;
 
-    @Column(name = "unit")
+    @OneToOne
+    @JoinColumn(name = "unit")
     private UnitProductEntity unit;
 
     @Column(name = "cost")
@@ -66,5 +70,13 @@ public class DocumentAbstractTabTorgEntity extends AbstractEntity {
 
     public void setSumma(Double summa) {
         this.summa = summa;
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 }
