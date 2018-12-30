@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "users")
 public class UserEntity extends AbstractEntity {
 
-    @Column(name = "login")
+    @Column(name = "login", unique = true, nullable = false)
     private String login;
 
     @Column(name = "password")
@@ -19,8 +19,11 @@ public class UserEntity extends AbstractEntity {
     @Column(name = "userName")
     private String userName;
 
-    @Column(name = "eMail")
+    @Column(name = "eMail", unique = true, nullable = false)
     private String eMail;
+
+    @Column(name = "disabled")
+    private Boolean disabled;
 
     public String getLogin() {
         return login;
@@ -52,5 +55,13 @@ public class UserEntity extends AbstractEntity {
 
     public void seteMail(String eMail) {
         this.eMail = eMail;
+    }
+
+    public Boolean getDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(Boolean disabled) {
+        this.disabled = disabled;
     }
 }

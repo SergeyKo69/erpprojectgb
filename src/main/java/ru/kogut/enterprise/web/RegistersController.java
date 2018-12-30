@@ -3,8 +3,8 @@ package ru.kogut.enterprise.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/register")
+//@Controller
+//@RequestMapping("/register")
 public class RegistersController {
 
 }

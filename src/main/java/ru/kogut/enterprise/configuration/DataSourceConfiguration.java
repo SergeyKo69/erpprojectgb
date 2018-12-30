@@ -10,6 +10,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -31,6 +32,11 @@ public class DataSourceConfiguration {
         return dataSource;
     }
 
+
+    @Bean
+    public EntityManager entityManager(LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean) {
+        return localContainerEntityManagerFactoryBean.getObject().createEntityManager();
+    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(

@@ -1,18 +1,18 @@
 package ru.kogut;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.web.WebAppConfiguration;
 import ru.kogut.enterprise.configuration.ApplicationConfiguration;
-import ru.kogut.enterprise.model.dictionaries.ClientEntity;
-import ru.kogut.enterprise.service.dictionaries.ClientServiceImpl;
 
 public class MainTest {
 
     @Test
     public void TestClient(){
 //        final ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
+
 //        final ClientServiceImpl clientService = ctx.getBean(ClientServiceImpl.class);
 //        ClientEntity client = new ClientEntity();
 //        client.setName("OOO Test client");

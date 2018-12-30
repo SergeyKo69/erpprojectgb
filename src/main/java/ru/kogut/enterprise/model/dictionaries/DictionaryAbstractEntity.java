@@ -1,6 +1,5 @@
 package ru.kogut.enterprise.model.dictionaries;
 
-import org.intellij.lang.annotations.Identifier;
 import ru.kogut.enterprise.model.AbstractEntity;
 
 import javax.persistence.Column;
