@@ -2,9 +2,9 @@ package ru.kogut.enterprise.model.security;
 
 import ru.kogut.enterprise.model.AbstractEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -24,6 +24,18 @@ public class UserEntity extends AbstractEntity {
 
     @Column(name = "disabled")
     private Boolean disabled;
+
+    @Column(name = "role")
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Role> roles = new ArrayList<>();
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public String getLogin() {
         return login;

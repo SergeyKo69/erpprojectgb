@@ -13,7 +13,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     }
 
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[]{DispatcherServletConfig.class};
+        return new Class<?>[]{WebMvcConfig.class};
     }
 
     protected String[] getServletMappings() {

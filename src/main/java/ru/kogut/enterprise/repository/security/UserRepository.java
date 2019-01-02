@@ -11,7 +11,10 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, String> {
 
-    List<UserEntity> findByLoginAndPassword(String login, String password);
+    List<UserEntity> findFirst1ByLoginAndPassword(@Param("login") String login, @Param("password") String password);
+    List<UserEntity> findFirst1ByUserName(@Param("userName") String userName);
+
+    UserEntity findByLogin(@Param("login") String login);
 
     long countByLogin(@Param("login") String login);
     long countByEMail(@Param("eMail") String eMail);
