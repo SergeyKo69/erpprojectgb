@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         )
                 .and()
                 .formLogin()
+                .loginProcessingUrl("/loginAction")
                 .successForwardUrl("/index")
                 .permitAll()
                 .and()
